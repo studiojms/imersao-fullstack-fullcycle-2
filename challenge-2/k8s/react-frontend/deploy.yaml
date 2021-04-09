@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: react-frontend
+  template:
+    metadata:
+      name: react-frontend
+      labels:
+        app.kubernetes.io/name: react-frontend
+    spec:
+      containers:
+        - name: react-frontend
+          image: jmsstudio/fsfc2-react-frontend
+          ports:
+            - containerPort: 3000
